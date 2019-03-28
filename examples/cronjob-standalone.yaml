@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: example-cronjob-standalone
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: k8s-python-executor
+            image: jakemalley/k8s-python-executor:latest
+            env:
+            - name: ENABLE
+              value: "TRUE"
+            volumeMounts:
+              - mountPath: /opt/scripts
+                name: example-scripts
+          volumes:
+            - name: example-scripts
+              configMap:
+                name: example-scripts-dir
+                defaultMode: 0744
