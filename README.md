@@ -12,6 +12,7 @@ There are two examples provided that both make use of Kubernetes CronJobs - See 
 
     ```
     kubectl apply -f examples/cronjob-aio.yaml
+    ```
 
 ### Standalone (CronJob, with ConfigMap created from a folder)
 
