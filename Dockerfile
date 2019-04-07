@@ -7,7 +7,8 @@ WORKDIR /opt
 
 RUN \
  apk update && \
- python3 -m pip install --upgrade pip --no-cache-dir
+ python3 -m pip install --upgrade pip --no-cache-dir && \
+ python3 -m pip install requests --no-cache-dir
 
 COPY entrypoint.sh /opt/entrypoint.sh
 
