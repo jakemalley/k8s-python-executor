@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.10-alpine
 
 # Create a working directory.
 RUN mkdir -p /opt
@@ -6,7 +6,7 @@ RUN mkdir -p /opt/scripts
 WORKDIR /opt
 
 RUN \
- apk update && \
+ apk update && apk upgrade && \
  python3 -m pip install --upgrade pip --no-cache-dir && \
  python3 -m pip install requests --no-cache-dir
 
