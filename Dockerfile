@@ -6,7 +6,7 @@ RUN mkdir -p /opt/scripts
 WORKDIR /opt
 
 RUN \
- apk update && apk upgrade \
+ apk update && apk upgrade && \
  python3 -m pip install --upgrade pip --no-cache-dir && \
  python3 -m pip install requests --no-cache-dir
 
